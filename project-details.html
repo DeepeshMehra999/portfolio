@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Project Details</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Loading animation */
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #135bec;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Smooth transitions */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-[#050505] min-h-screen flex flex-col font-display text-slate-900 dark:text-white overflow-x-hidden">
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-white/5 bg-background-light/80 dark:bg-[#050505]/80 backdrop-blur-md">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-20 items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="flex size-8 items-center justify-center rounded-lg bg-primary text-white">
+                            <span class="material-symbols-outlined text-xl">dataset</span>
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight">ALEX.DESIGN</h2>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-10">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Work</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Services</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+                </div>
+                
+                <!-- CTA -->
+                <div class="hidden md:flex">
+                    <button class="group relative flex h-10 items-center justify-center overflow-hidden rounded-lg bg-white dark:bg-white/10 px-6 text-sm font-bold text-slate-900 dark:text-white transition-all hover:bg-slate-100 dark:hover:bg-white/20">
+                        <span>Get in Touch</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Icon -->
+                <div class="md:hidden text-white">
+                    <span class="material-symbols-outlined cursor-pointer">menu</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 space-y-24">
+        <!-- Loading State -->
+        <div id="loadingState" class="flex flex-col items-center justify-center min-h-[60vh] text-center fade-in">
+            <div class="loading-spinner mb-6"></div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Loading Project Details</h2>
+            <p class="text-slate-500 dark:text-slate-400">Please wait while we fetch the project information</p>
+        </div>
+
+        <!-- Project Details Content (Will be populated by JavaScript) -->
+        <div id="projectContent" class="hidden fade-in">
+            <!-- Project will be dynamically inserted here -->
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden flex flex-col items-center justify-center min-h-[60vh] text-center fade-in">
+            <span class="material-symbols-outlined text-6xl text-red-500 mb-6">error</span>
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Project Not Found</h2>
+            <p class="text-slate-500 dark:text-slate-400 mb-8 max-w-md">
+                The project you're looking for doesn't exist or has been moved.
+            </p>
+            <a href="index.html" class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all hover:bg-blue-600 hover:shadow-primary/40">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Portfolio
+            </a>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="mt-12 border-t border-slate-200 dark:border-white/5 bg-background-light dark:bg-[#050505] py-12">
+        <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <p class="text-sm text-slate-500 dark:text-slate-400">© 2024 Alex Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Projects Data Array
+        const projectsData = [
+            {
+                id: 1,
+                title: "FinDash Analytics",
+                category: "web",
+                industry: "Fintech",
+                shortDescription: "A comprehensive dashboard for visualizing real-time stock market data and crypto assets.",
+                fullDescription: "A comprehensive dashboard for visualizing real-time stock market data and crypto assets. Designed to handle high-frequency data updates via WebSockets while maintaining a buttery smooth 60fps UI performance.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuARoVWcvhyIbBgSof9DNsbDgINHy1Oz5ajZ4LjAqmTw1LYXiaLmMAQt3fI-6MzBsCfi8QiW99ecf-9MIaOFBh1DO6RxrzImoYTp_gSk-zpbmcgX1ER5_d7BsKG6l6pfFb3dhW9VcE5R4DhSqjM6itL2U_u2Ep6WVx4YlPwibPmUsK38nqFm2ytDTX4uKV-XIMxdvsmuYabJ9OdQHCunoce2ncXQVerptm4kkddxA7ewHMCmr0HFhdB99obv2RveRD6rh-x9fEOuEIPe",
+                tech: ["React", "TypeScript", "Tailwind", "Node.js"],
+                features: [
+                    "Real-time WebSocket data integration",
+                    "Interactive D3.js charting library",
+                    "Biometric secure authentication flow"
+                ],
+                liveLink: "#",
+                codeLink: "#",
+                featured: true,
+                date: "2024-03-01",
+                slug: "findash-analytics"
+            },
+            {
+                id: 2,
+                title: "Streamify App",
+                category: "mobile",
+                industry: "Video Streaming",
+                shortDescription: "Video streaming mobile application with personalized recommendations.",
+                fullDescription: "A mobile video streaming application with personalized content recommendations, offline viewing, and social sharing features.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB4IXnqEFLV9EshiyNuv8mzheRR8cip3-2ZggmiWsM6OiX0XSunjjU98oEW4TbBFHCxqo0fACYj2UvVuHucK0tXU5cESVecTw-N_pFMYbDFgTrb8muBR4CO_BA12B7Dihwc_wMWljUzr7Asgdfuwk9bj3ZuWNP3w884YMRXL4xCtzxkJLtDgJ171WXtI6QaIAyOw9-fJBZZfdBEcw110viuATKE5jbkqjyi9ILUN9YFrQyCSuJGX4ESQLrVrm5j9wHpl2mlY1MXzGz9",
+                tech: ["React Native", "Redux", "Firebase"],
+                features: [
+                    "Personalized content recommendations",
+                    "Offline viewing capability",
+                    "Social sharing integration"
+                ],
+                liveLink: "#",
+                codeLink: "#",
+                featured: false,
+                date: "2024-04-15",
+                slug: "streamify-app"
+            },
+            {
+                id: 3,
+                title: "Metric Flow",
+                category: "web",
+                industry: "SaaS Dashboard",
+                shortDescription: "SaaS dashboard for business analytics and data visualization.",
+                fullDescription: "A SaaS dashboard platform for business analytics with customizable dashboards, real-time reporting, and team collaboration features.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNtGX4RQQzK1teS5OKtwl8ScDCA55juYb-C9t-ZnhJySi5EsrbTQZ0L6Kcw87Hkh4Qkq47DcAYFFnvJbVu0RZ9aA5WztZ_t9WByowF2_uSCgBKoxtbox-ZGRuDW4PyBPsxxOOh3t_IJrQcELuHgzRs_S8sVPEB9CnADLrYIjRgIuMajKxyjE5nWE_4gcip6mvHGrOAJQxWX9EcVSJkQkdL8Y3-JYpVAGAtv4AD_wPfC9XKzozN3sKYCbkjxdDcym14COQ_O2bkx06U",
+                tech: ["Vue.js", "Python", "PostgreSQL", "Docker"],
+                features: [
+                    "Customizable dashboard layouts",
+                    "Real-time reporting",
+                    "Team collaboration tools"
+                ],
+                liveLink: "#",
+                codeLink: "#",
+                featured: true,
+                date: "2024-05-20",
+                slug: "metric-flow"
+            },
+            {
+                id: 4,
+                title: "Zen Commerce",
+                category: "design",
+                industry: "E-commerce",
+                shortDescription: "Modern e-commerce design system for Shopify stores.",
+                fullDescription: "Complete e-commerce design system for Shopify including product pages, cart flows, and checkout processes.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuANwWM40LpqwBoYWxMgR7Uv5KpE_ivVR4L8BY94NbrpWHiYnJL_9HLVJJGViJEZ900xTagCu5VOnRCp82hoTM7TIeVlj3Ht0mpsPJsQjVzF9SVthnbv9idGzWH1jeI12tC295nnK6_U-gb9tRIujda2xIFI0awSPp-to9AR_dj5ST1PUiK10o1IKr-Why3rDgp_IXEVgJgampQmPu7Eesb5SkZsnTuymuF2sGp48d74vR5oBJ_LiX4lLLaCIAmxymL_uXo6i9z02Sh4",
+                tech: ["Figma", "Shopify", "UI Design"],
+                features: [
+                    "Complete Shopify theme design",
+                    "Product page templates",
+                    "Checkout flow optimization"
+                ],
+                liveLink: "#",
+                codeLink: null,
+                featured: false,
+                date: "2024-05-01",
+                slug: "zen-commerce"
+            },
+            // ADD YOUR OWN PROJECTS HERE:
+            {
+                id: 5,
+                title: "Krishi Gifts and Chocolates",
+                category: "web",
+                industry: "E-commerce",
+                shortDescription: "KGC is an e-commerce website that sells Homemade chocolates and Gifts",
+                fullDescription: "A complete e-commerce platform for homemade chocolates and gifts with user authentication, product catalog, cart system, and checkout functionality.",
+                image: "assets/images/kgc.png",
+                tech: ["Html", "Css", "Js"],
+                features: [
+                    "Responsive e-commerce design",
+                    "Product catalog with filters",
+                    "Shopping cart functionality"
+                ],
+                liveLink: "shopkgc.in",
+                codeLink: null,
+                featured: true,
+                date: "2024-01-15",
+                slug: "krishi-gifts-chocolates"
+            },
+            {
+                id: 6,
+                title: "Sundown Studio Clone",
+                category: "web",
+                industry: "Creative Agency",
+                shortDescription: "Sundown Studio is Awwards Website that i Cloned.",
+                fullDescription: "A pixel-perfect clone of the award-winning Sundown Studio website with smooth animations and responsive design.",
+                image: "assets/images/sundown.png",
+                tech: ["Html", "Css", "Js", "Gsap"],
+                features: [
+                    "Smooth scroll animations",
+                    "Responsive layout",
+                    "Interactive elements"
+                ],
+                liveLink: "#",
+                codeLink: "#",
+                featured: true,
+                date: "2024-02-10",
+                slug: "sundown-studio-clone"
+            },
+            {
+                id: 7,
+                title: "Car Showcase Website",
+                category: "web",
+                industry: "Automotive",
+                shortDescription: "This is an Car Showcase Website with Clean and professional UI.",
+                fullDescription: "A car showcase website with filtering options, detailed specifications, and image gallery.",
+                image: "assets/images/carshowcase.png",
+                tech: ["Html", "Bootstrap"],
+                features: [
+                    "Car filtering system",
+                    "Detailed specifications",
+                    "Image gallery"
+                ],
+                liveLink: "#",
+                codeLink: "#",
+                featured: true,
+                date: "2024-04-01",
+                slug: "car-showcase-website"
+            }
+        ];
+
+        // Store projects data in localStorage
+        localStorage.setItem('portfolioProjects', JSON.stringify(projectsData));
+
+        // Get URL parameter function - FIXED VERSION
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Debug function to see what's in the URL
+        function debugURL() {
+            console.log('Current URL:', window.location.href);
+            console.log('Search params:', window.location.search);
+            const urlParams = new URLSearchParams(window.location.search);
+            console.log('Project parameter:', urlParams.get('project'));
+            console.log('All projects:', projectsData.map(p => p.slug));
+        }
+
+        // Format date function
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long'
+            });
+        }
+
+        // Get industry icon
+        function getIndustryIcon(industry) {
+            const icons = {
+                'Fintech': 'show_chart',
+                'Video Streaming': 'play_circle',
+                'SaaS Dashboard': 'monitoring',
+                'E-commerce': 'shopping_cart',
+                'Creative Agency': 'palette',
+                'Web Application': 'language',
+                'Automotive': 'directions_car'
+            };
+            return icons[industry] || 'widgets';
+        }
+
+        // Render project details with EXACT same UI
+        function renderProjectDetails(project) {
+            console.log('Rendering project:', project.title);
+            
+            const projectContent = document.getElementById('projectContent');
+            const loadingState = document.getElementById('loadingState');
+            
+            // Hide loading state
+            loadingState.classList.add('hidden');
+            
+            // Show project content
+            projectContent.classList.remove('hidden');
+            
+            // Create features list HTML
+            const featuresHTML = project.features.map(feature => 
+                `<li class="flex items-start gap-3 text-sm text-slate-500 dark:text-slate-400">
+                    <span class="material-symbols-outlined text-primary text-lg shrink-0">check_circle</span>
+                    <span>${feature}</span>
+                </li>`
+            ).join('');
+            
+            // Create tech stack HTML
+            const techStackHTML = project.tech.map(tech => 
+                `<span class="inline-flex items-center rounded-md bg-slate-100 dark:bg-[#1a2333] px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 ring-1 ring-inset ring-slate-500/10 dark:ring-white/10">${tech}</span>`
+            ).join('');
+            
+            // Create project details HTML - EXACT same structure as your original
+            projectContent.innerHTML = `
+                <!-- Section Header -->
+                <header class="flex flex-col gap-4 border-l-2 border-primary pl-6">
+                    <span class="text-primary font-bold tracking-widest text-xs uppercase">Project Details</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        ${project.title}
+                    </h1>
+                    <p class="max-w-2xl text-lg text-slate-500 dark:text-slate-400">
+                        ${project.fullDescription}
+                    </p>
+                </header>
+                
+                <!-- Featured Project (Split Screen) - EXACT same layout -->
+                <article class="group relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    <!-- Project Image (Left) -->
+                    <div class="lg:col-span-7 relative">
+                        <div class="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-800 ring-1 ring-white/10 shadow-2xl transition-all duration-500 group-hover:shadow-primary/20">
+                            <!-- Image Overlay on Hover -->
+                            <div class="absolute inset-0 z-10 bg-black/0 transition-colors duration-500 group-hover:bg-black/10"></div>
+                            <div class="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" 
+                                 style="background-image: url('${project.image}')">
+                            </div>
+                        </div>
+                        <!-- Decorative Elements -->
+                        <div class="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-xl border border-white/5 bg-transparent"></div>
+                    </div>
+                    
+                    <!-- Project Details (Right) -->
+                    <div class="lg:col-span-5 flex flex-col gap-8">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 text-primary">
+                                <span class="material-symbols-outlined text-sm">${getIndustryIcon(project.industry)}</span>
+                                <span class="text-sm font-bold tracking-wider uppercase">${project.industry}</span>
+                            </div>
+                            <h2 class="text-4xl font-bold leading-tight text-slate-900 dark:text-white">
+                                ${project.title}
+                            </h2>
+                            <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                                ${project.shortDescription}
+                            </p>
+                        </div>
+                        
+                        <!-- Key Features List -->
+                        <ul class="space-y-3 border-t border-slate-200 dark:border-white/10 pt-6">
+                            ${featuresHTML}
+                        </ul>
+                        
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-2">
+                            ${techStackHTML}
+                        </div>
+                        
+                        <!-- Actions -->
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            ${project.liveLink && project.liveLink !== '#' ? 
+                                `<button onclick="window.open('${project.liveLink}', '_blank')" 
+                                   class="flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all hover:bg-blue-600 hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#050505]">
+                                    <span>View Project</span>
+                                    <span class="material-symbols-outlined text-lg">arrow_outward</span>
+                                </button>` : ''
+                            }
+                            
+                            ${project.codeLink && project.codeLink !== '#' ? 
+                                `<button onclick="window.open('${project.codeLink}', '_blank')" 
+                                   class="flex items-center gap-2 rounded-lg bg-slate-200 dark:bg-white/5 px-6 py-3 text-sm font-bold text-slate-900 dark:text-white transition-all hover:bg-slate-300 dark:hover:bg-white/10">
+                                    <span class="material-symbols-outlined text-lg">code</span>
+                                    <span>GitHub Repo</span>
+                                </button>` : ''
+                            }
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Spacer Divider -->
+                <div class="w-full border-t border-slate-200 dark:border-white/5"></div>
+                
+                <!-- Secondary Projects Strip -->
+                <section class="space-y-8">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-2xl font-bold">Related Projects</h3>
+                        <a class="group flex items-center gap-1 text-sm font-medium text-slate-500 transition-colors hover:text-primary dark:text-slate-400" href="index.html">
+                            View All Projects
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="relatedProjects">
+                        <!-- Related projects will be dynamically added -->
+                    </div>
+                </section>
+            `;
+            
+            // Update page title
+            document.title = `${project.title} | Project Details`;
+            
+            // Load related projects
+            loadRelatedProjects(project.id);
+        }
+
+        // Load related projects (other projects from same category)
+        function loadRelatedProjects(currentProjectId) {
+            const relatedProjectsContainer = document.getElementById('relatedProjects');
+            
+            if (!relatedProjectsContainer) return;
+            
+            // Get current project
+            const currentProject = projectsData.find(p => p.id === currentProjectId);
+            if (!currentProject) return;
+            
+            // Get related projects (same category, excluding current)
+            let relatedProjects = projectsData
+                .filter(p => p.id !== currentProjectId && p.category === currentProject.category)
+                .slice(0, 3); // Limit to 3 projects
+            
+            // If no related projects from same category, show any other projects
+            if (relatedProjects.length === 0) {
+                relatedProjects = projectsData
+                    .filter(p => p.id !== currentProjectId)
+                    .slice(0, 3);
+            }
+            
+            // Create related projects HTML
+            const relatedProjectsHTML = relatedProjects.map(project => `
+                <a class="group block space-y-4 rounded-xl bg-slate-50 dark:bg-[#0f141e] p-4 transition-all hover:bg-slate-100 dark:hover:bg-[#161d2b]" 
+                   href="project-details.html?project=${project.slug}">
+                    <div class="aspect-video w-full overflow-hidden rounded-lg bg-slate-200 dark:bg-[#1a2333]">
+                        <div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" 
+                             style="background-image: url('${project.image}')">
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">${project.title}</h4>
+                            <span class="material-symbols-outlined text-slate-400 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100 group-hover:text-primary">arrow_forward</span>
+                        </div>
+                        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">${project.industry} • ${project.category.charAt(0).toUpperCase() + project.category.slice(1)}</p>
+                    </div>
+                </a>
+            `).join('');
+            
+            // Add related projects to container
+            relatedProjectsContainer.innerHTML = relatedProjectsHTML;
+        }
+
+        // Show error state
+        function showError() {
+            console.log('Showing error state');
+            const loadingState = document.getElementById('loadingState');
+            const errorState = document.getElementById('errorState');
+            
+            loadingState.classList.add('hidden');
+            errorState.classList.remove('hidden');
+            errorState.classList.add('fade-in');
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug URL
+            debugURL();
+            
+            // Get project slug from URL
+            const projectSlug = getUrlParameter('project');
+            
+            console.log('Project slug from URL:', projectSlug);
+            
+            if (!projectSlug) {
+                console.log('No project slug found in URL');
+                // No project slug in URL, show error
+                showError();
+                return;
+            }
+            
+            // Use the projectsData array directly
+            console.log('Looking for project with slug:', projectSlug);
+            console.log('Available slugs:', projectsData.map(p => p.slug));
+            
+            // Find the project
+            const project = projectsData.find(p => p.slug === projectSlug);
+            
+            console.log('Found project:', project);
+            
+            if (project) {
+                // Render project details
+                setTimeout(() => {
+                    renderProjectDetails(project);
+                }, 300); // Small delay for smooth transition
+            } else {
+                console.log('Project not found in data');
+                // Project not found
+                showError();
+            }
+        });
+
+        // Make it easy to test by adding a debug button
+        console.log('For testing, you can use these URLs:');
+        console.log('1. project-details.html?project=findash-analytics');
+        console.log('2. project-details.html?project=streamify-app');
+        console.log('3. project-details.html?project=metric-flow');
+        console.log('4. project-details.html?project=zen-commerce');
+        console.log('5. project-details.html?project=krishi-gifts-chocolates');
+        console.log('6. project-details.html?project=sundown-studio-clone');
+        console.log('7. project-details.html?project=car-showcase-website');
+    </script>
+</body>
+</html>
