@@ -2,6 +2,31 @@
   font-family: primaryfont;
   src: url('assets/NeueHaasDisplay-Roman.ttf');
 }
+@font-face {
+  font-family: pokemon;
+  src: url('assets/Fonts/Pokemon\ Hollow.ttf');
+}
+@font-face {
+  font-family: dynamic;
+  src: url('assets/Fonts/Jersey\ M54.ttf');
+}
+@font-face {
+  font-family: ghost;
+  src: url('assets/Fonts/Ghost\ Factory.ttf');
+}
+@font-face {
+  font-family: pizza;
+  src: url('assets/Fonts/pepperoni_pizza.ttf');
+}
+@font-face {
+  font-family: strike;
+  src: url('assets/Fonts/The\ Last\ Shuriken.ttf');
+}
+@font-face {
+  font-family: sand;
+  src: url('assets/Fonts/Quicksand_Bold.otf');
+}
+
 :root{
   --bg:#0d0d0d;--bg2:#141414;--bg3:#1a1a1a;--card:#161616;
   --border:rgba(255,255,255,0.08);--bdo:rgba(255,85,0,0.4);
@@ -84,9 +109,21 @@
   font-size: 40px;
   font-weight: 100;
   letter-spacing: 1px;
+  /* font-family: sand; */
 }
+
 .hero .hero-left .theme-font{
   color: #FF721B;
+  font-family:pizza;
+  font-size: 60px;
+  /* border-right: 1px solid #FF721B; */
+}
+.hero .hero-left .theme-fonts{
+  color: #FF721B;
+  font-family:strike;
+  font-size: 40px;
+   /* border-right: 1px solid #FF721B; */
+
 }
 .hero .hero-left .left2{
   display: flex;
@@ -108,8 +145,17 @@
   width: 80%;
    color: #ABA9A9;
    font-size: 16px;
+    /* font-family:sand !important; */
+}
+.title-font{
+  font-family:pokemon !important;
+  font-weight:900 !important;
+  
 }
 
+.title-font2{
+  font-family:dynamic;
+}
 .circle {
   position: relative;
   display: inline-flex;
@@ -218,6 +264,13 @@ height: 300px;
   .hero .hero-left h3{
     font-size: 35px;
   }
+  .hero .hero-left .theme-font{
+    font-size: 50px;
+  }
+  .hero .hero-left .theme-fonts{
+    font-size: 45px;
+  }
+
   .hero .hero-left .circle{
     height: 22px;
     width: 22px;
@@ -261,6 +314,12 @@ height: 300px;
   .hero .hero-left h3{
     font-size: 30px;
   }
+    .hero .hero-left .theme-font{
+    font-size: 40px;
+  }
+     .hero .hero-left .theme-fonts{
+    font-size: 35px;
+  }
   .hero .hero-left .circle{
     height: 20px;
     width: 20px;
@@ -276,6 +335,13 @@ height: 300px;
   .hero .hero-left h3{
     font-size: 25px;
   }
+  .hero .hero-left .theme-font{
+    font-size: 35px;
+  }
+     .hero .hero-left .theme-fonts{
+    font-size: 30px !important;
+  }
+
   .hero .hero-left .circle{
     height: 18px;
     width: 18px;
@@ -291,9 +357,20 @@ height: 300px;
   .hero .hero-left h3{
     /* background-color: red; */
     width: 100%;
-    font-size: 22px;
+    font-size: 24px;
   }
+    .hero .hero-left .theme-font{
+    font-size: 30px;
+  }
+    .hero .hero-left .theme-fonts{
+    font-size: 25px !important;
+  }
+  .hero .hero-left p{
+/* background-color: red; */
   
+   font-size: 15px;
+    /* font-family:sand !important; */
+}
   
 }
 
@@ -582,7 +659,7 @@ letter-spacing: 2px;
 .contact .contact-para{
   width: 40%;
   color: #ABA9A9;
-  font-size: 14px;
+font-size: 14px;
   text-align: center;
 }
 .contact  .contact-button{
@@ -1415,3 +1492,12 @@ font-size: 30px;
         padding: 16px 20px 20px;
     }
 }
+/* Footer Social Icons - Premium Hover Effect */
+.footer .social-icon {
+    color: #7f7f7f;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

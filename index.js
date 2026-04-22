@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // 3. TYPEWRITER EFFECT FOR HERO SECTION
 // ======================================================================================
 document.addEventListener('DOMContentLoaded', function() {
-    const typedTextElement = document.querySelector('.hero .hero-left .left1 .theme-font:last-child, .hero .hero-left h3 .theme-font');
+    const typedTextElement = document.querySelector('.hero .hero-left .left1 .theme-fonts:last-child, .hero .hero-left h3 .theme-fonts');
     
     // If the specific element isn't found, try to find it differently
     let targetElement;
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Find the one containing "Frontend Developer"
             h3Elements.forEach(h3 => {
                 if (h3.textContent.includes('Frontend Developer')) {
-                    const span = h3.querySelector('.theme-font');
+                    const span = h3.querySelector('.theme-fonts');
                     if (span) {
                         targetElement = span;
                     }
