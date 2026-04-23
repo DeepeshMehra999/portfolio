@@ -1500,4 +1500,26 @@ font-size: 30px;
     align-items: center;
     justify-content: center;
 }
+.cursor{
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* border: 2px solid #fa6001; */
+  background:white;
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.cursor span{
+  color:black;
+  font-size: 8px;
+  font-weight: 900;
+  font-family: strike;
+}
 

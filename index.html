@@ -67,6 +67,9 @@
 </head>
 
 <body>
+  <div class="cursor">
+
+  </div>
 <div id="loader">
   <div class="loader-ring"></div>
   <div class="loader-txt"> loading 
@@ -78,9 +81,9 @@
 
 <!-- Dock Navigation -->
 <div class="dock">
-  <a href="index.html" class="dbtn"><span class="dtip">Home</span><svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M3 12L12 4l9 8M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg></a>
+  <a href="index.html" class="dbtn" ><span class="dtip">Home</span><svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M3 12L12 4l9 8M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg></a>
   
-  <a href="#about" class="dbtn"><span class="dtip">About</span><svg width="14" height="14" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></a>
+  <a href="#about" class="dbtn"><span class="dtip" >About</span><svg width="14" height="14" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></a>
   
   <a href="#skills" class="dbtn"><span class="dtip">Skills</span><svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 4L4 8v8l8 4 8-4V8l-8-4z M12 12v8 M8 6L4 8 M16 6l4 2"/></svg></a>
   
@@ -99,18 +102,18 @@
     <div class="left1">
       <h3>Hello!!</h3>
       <h3>My Name is </h3>
-      <h3 class="theme-font">Deepesh Mehra</h3>
-      <h3>and I'm a <span class="theme-fonts">Frontend Developer</span></h3>
+      <h3 class="theme-font cursor-enter"  data-cursor="Intro">Deepesh Mehra</h3>
+      <h3>and I'm a <span class="theme-fonts"  >Frontend Developer</span></h3>
     </div>
     <div class="left2"></div>
     <p >Build a Stunning website with me. I Provide a Simple and Modern UI Design for you.</p>
   </div>
   <div class="hero-right">
     <div class="right-box">
-      <div class="canvas-container"><div class="canvas"><img src="assets/images/Tech-Skills/html.png" alt=""></div></div>
-      <div class="canvas-container"><div class="canvas"><img src="assets/images/Tech-Skills/css.png" alt=""></div></div>
-      <div class="canvas-container"><div class="canvas"><img src="assets/images/Tech-Skills/js.png" alt=""></div></div>
-      <div class="canvas-container"><div class="canvas"><img src="assets/images/Tech-Skills/react3.png" alt=""></div></div>
+      <div class="canvas-container"><div class="canvas"  data-cursor="Skills"><img src="assets/images/Tech-Skills/html.png" alt=""></div></div>
+      <div class="canvas-container"><div class="canvas"data-cursor="Skills"><img src="assets/images/Tech-Skills/css.png" alt=""></div></div>
+      <div class="canvas-container"><div class="canvas"data-cursor="Skills"><img src="assets/images/Tech-Skills/js.png" alt=""></div></div>
+      <div class="canvas-container"><div class="canvas" data-cursor="Skills"><img src="assets/images/Tech-Skills/react3.png" alt=""></div></div>
     </div>
   </div>
 </section>
@@ -120,7 +123,7 @@
   <div class="max-w-[1200px] mx-auto w-full">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
       <div class="lg:col-span-7 flex flex-col gap-10">
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-6" >
           <h1 class="title-font text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
             The Developer<span class="text-primary">.</span> <br/>
             <span class="text-white/40">&amp;</span> The Designer<span class="text-white/40">.</span>
@@ -134,10 +137,16 @@
           </p>
         </div>
         <div class="pt-2">
-          <button class="group flex items-center gap-3 text-white text-sm font-bold tracking-wide uppercase transition-colors duration-300">
-            <span class="title-font2 border-b border-white/30 pb-0.5 group-hover:border-primary transition-colors">Download Resume</span>
-            <span class="material-symbols-outlined text-lg transition-transform duration-300 group-hover:translate-x-1">arrow_right_alt</span>
-          </button>
+          <a href="assets/Certificate/Deepesh-resume.pdf" download="Deepesh-resume.pdf" class="download-btn">
+  <button class="group flex items-center gap-3 text-white text-sm font-bold tracking-wide uppercase transition-colors duration-300">
+    <span class="title-font2 border-b border-white/30 pb-0.5 group-hover:border-primary transition-colors">
+      Download Resume
+    </span>
+    <span class="material-symbols-outlined text-lg transition-transform duration-300 group-hover:translate-x-1">
+      arrow_right_alt
+    </span>
+  </button>
+</a>
         </div>
       </div>
       <div class="hidden lg:flex lg:col-span-1 justify-center h-full min-h-[300px]">
@@ -155,7 +164,7 @@
         <div class="flex flex-col gap-2 group cursor-default">
           <div class="flex items-baseline gap-1">
             <span class="title-font text-6xl md:text-7xl font-bold text-white tracking-tighter group-hover:text-primary transition-colors duration-500">11</span>
-            <span class="text-2xl text-primary font-bold">+</span>
+            <span class="text-2xl text-primary font-bold ps-3"> +</span>
           </div>
           <div class="h-px w-12 bg-[#333] group-hover:w-full group-hover:bg-primary/30 transition-all duration-700 ease-out"></div>
           <p class="text-[#9a9a9a] text-xs font-bold tracking-[0.25em] uppercase mt-1">Projects Done</p>
@@ -255,10 +264,18 @@
     </div>
   </div>
   <p class="contact-para title-font2">Have a project in mind? Let's work together to create something amazing. Reach out and I'll get back to you within 24 hours.</p>
-  <a href="mailto:deepeshmehra2006@gmail.com" class="contact-button">
+<a href="mailto:deepeshmehra2006@gmail.com" class="contact-button">
     <p>Contact Us</p>
-    <div class="contact-circle"><img src="assets/svg/arrow.svg" alt=""></div>
-  </a>
+
+    <div class="contact-circle">
+         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+        <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M12 8L16 12L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 12H15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    </div>
+  
+</a>
 </section>
 
 <!-- Certificates Section -->
@@ -270,12 +287,29 @@
     </div>
     <h4 class="title-font">Certificates</h4>
   </div>
-  <div class="right-certificate">
-    <div class="certificate-wrap"><div class="certificate-card"><h3>Pshg</h3></div></div>
-    <div class="certificate-wrap imp-certi"><div class="certificate-card imp-card"><h3 class="imp-heading">Syncedge</h3></div></div>
-    <div class="certificate-wrap"><div class="certificate-card"><h3>Degree</h3></div></div>
-    <div class="certificate-wrap imp-certi"><div class="certificate-card imp-card"><h3 class="imp-heading">Syncedge</h3></div></div>
-  </div>
+<div class="right-certificate">
+
+  <a href="assets/Certificate/Deepesh-intern1.pdf" download="Deepesh-resume.pdf" class="certificate-wrap imp-certi">
+    <div class="certificate-card imp-card">
+      <h3 class="imp-heading">Syncedge</h3>
+    </div>
+  </a>
+
+  <a href="assets/Certificate/Deepesh-PSHG.png" download="Deepesh-PSHG.png" class="certificate-wrap">
+    <div class="certificate-card">
+      <h3>Pshg</h3>
+    </div>
+  </a>
+
+  <!-- <div class="certificate-wrap"><div class="certificate-card"><h3>Degree</h3></div></div> -->
+
+  <a href="assets/Certificate/Deepesh-intern2.pdf" download="Deepesh-intern1.pdf" class="certificate-wrap imp-certi">
+    <div class="certificate-card imp-card">
+      <h3 class="imp-heading">Syncedge</h3>
+    </div>
+  </a>
+
+</div>
 </section>
 
 <!-- Footer -->
@@ -306,27 +340,23 @@
       
       <!-- Column 3: Social Presence -->
       <div class="flex flex-col items-start md:items-end w-full">
-        <div class="flex items-center gap-5">
+        <div class="flex items-center gap-3">
           <!-- GitHub Icon - Premium -->
-          <a aria-label="GitHub" class="social-icon" href="https://github.com/devdeepesh" target="_blank" rel="noopener noreferrer">
+          <a aria-label="GitHub" class="social-icon" href="https://github.com/DeepeshMehra999" target="_blank" rel="noopener noreferrer">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2C6.477 2 2 6.477 2 12C2 16.991 5.657 21.128 10.438 22V19.5C7.707 19.5 7.375 17.5 7.375 17.5C7.125 16.75 6.375 16.5 6.375 16.5C5.375 15.875 6.5 15.875 6.5 15.875C7.625 16 8.125 17 8.125 17C9.25 18.875 11.25 18.375 12 18C12.125 17.25 12.5 16.75 12.875 16.5C10.125 16.125 7.5 15.125 7.5 11.5C7.5 10.375 8 9.375 8.875 8.625C8.75 8.25 8.25 7.125 9 5.875C9 5.875 10.125 5.5 12 7C13.25 6.625 14.625 6.625 15.875 7C17.75 5.5 18.875 5.875 18.875 5.875C19.625 7.125 19.125 8.25 19 8.625C19.875 9.375 20.375 10.375 20.375 11.5C20.375 15.125 17.75 16.125 15 16.5C15.5 16.875 15.875 17.5 15.875 18.5V22C20.343 21.128 24 16.991 24 12C24 6.477 19.523 2 14 2H12Z" fill="currentColor"/>
             </svg>
           </a>
           
           <!-- LinkedIn Icon - Premium -->
-          <a aria-label="LinkedIn" class="social-icon" href="https://linkedin.com/in/devdeepesh" target="_blank" rel="noopener noreferrer">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a aria-label="LinkedIn" class="social-icon" href="https://linkedin.com/in/deepeshmehra05" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.811C13.288 9.661 14.448 7.711 16.181 7.711C19.782 7.711 20.448 10.081 20.448 13.166V20.452H20.447ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z" fill="currentColor"/>
             </svg>
           </a>
           
           <!-- Instagram Icon - Premium -->
-          <a aria-label="Instagram" class="social-icon" href="https://instagram.com/devdeepesh" target="_blank" rel="noopener noreferrer">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C9.243 2 8.895 2.012 7.813 2.061C3.403 2.262 0.899 4.768 0.699 9.175C0.65 10.256 0.637 10.604 0.637 13.363C0.637 16.12 0.65 16.468 0.699 17.55C0.899 21.954 3.399 24.463 7.813 24.664C8.895 24.713 9.243 24.725 12 24.725C14.757 24.725 15.105 24.713 16.188 24.664C20.594 24.464 23.101 21.956 23.301 17.55C23.35 16.469 23.363 16.121 23.363 13.363C23.363 10.605 23.35 10.257 23.301 9.175C23.102 4.772 20.598 2.262 16.188 2.061C15.105 2.012 14.757 2 12 2ZM12 6.863C15.589 6.863 18.5 9.773 18.5 13.363C18.5 16.953 15.589 19.863 12 19.863C8.411 19.863 5.5 16.953 5.5 13.363C5.5 9.773 8.411 6.863 12 6.863ZM12 17.263C14.154 17.263 15.9 15.517 15.9 13.363C15.9 11.209 14.154 9.463 12 9.463C9.846 9.463 8.1 11.209 8.1 13.363C8.1 15.517 9.846 17.263 12 17.263ZM18.45 6.163C18.45 6.852 17.889 7.413 17.2 7.413C16.511 7.413 15.95 6.852 15.95 6.163C15.95 5.474 16.511 4.913 17.2 4.913C17.889 4.913 18.45 5.474 18.45 6.163Z" fill="currentColor"/>
-            </svg>
-          </a>
+      
         </div>
       </div>
     </div>
@@ -382,6 +412,8 @@
 
 </main>
 
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
@@ -393,32 +425,317 @@
 
 // Projects Data with Gallery Images
 const projectsData = [
-    { id: 1, title: "Krishi Gifts and Chocolates", category: "web", description: "KGC is an e-commerce website that sells Homemade chocolates and Gifts", fullDescription: "A complete e-commerce platform for homemade chocolates and gifts with user authentication, product catalog, cart system, and checkout functionality.", image: "assets/images/kgc.png", gallery: ["assets/images/kgc.png", "assets/images/kgc2.png", "assets/images/kgc3.png", "assets/images/kgc4.png"], tech: ["Html", "Css", "Js"], liveLink: "https://shopkgc.in/KGC/pages/index.php", codeLink: null, date: "2024-01-15", slug: "krishi-gifts-chocolates" },
-    { id: 2, title: "Sundown Studio Clone", category: "web", description: "Sundown Studio is Awwards Website that i Cloned.", fullDescription: "A pixel-perfect clone of the award-winning Sundown Studio website with smooth animations and responsive design.", image: "assets/images/sundown.png", gallery: ["assets/images/sundown.png", "assets/images/sundown2.png", "assets/images/sundown3.png", "assets/images/sundown4.png"], tech: ["Html", "Css", "Js", "Gsap"], liveLink: "https://devdeepesh-sundow-studio-clone.netlify.app/", codeLink: "#", date: "2024-02-10", slug: "sundown-studio-clone" },
-    { id: 3, title: "Indha Website Clone", category: "web", description: "It is an e-commerce website where i cloned the Frontend art.", fullDescription: "Frontend clone of Indha e-commerce website with product pages, cart functionality, and responsive design.", image: "assets/images/indha.png", gallery: ["assets/images/indha.png", "assets/images/indha2.png", "assets/images/indha3.png", "assets/images/indha4.png", "assets/images/indha5.png"], tech: ["React Js", "React Router"], liveLink: null, codeLink: "#", date: "2024-03-05", slug: "indha-website-clone" },
-    { id: 4, title: "Printshoppy Clone", category: "web", description: "It is an e-commerce website where i cloned the Frontend art.", fullDescription: "E-commerce website clone for print-on-demand services with product customization features.", image: "assets/images/printshoppy.png", gallery: ["assets/images/printshoppy.png", "assets/images/printshoppy2.png", "assets/images/printshoppy3.png", "assets/images/printshoppy4.png"], tech: ["React Js", "React Router"], liveLink: null, codeLink: "#", date: "2024-03-20", slug: "printshoppy-clone" },
-    { id: 5, title: "Car Showcase Website", category: "web", description: "This is an Car Showcase Website with Clean and professional UI.", fullDescription: "A car showcase website with filtering options, detailed specifications, and image gallery.", image: "assets/images/carshowcase.png", gallery: ["assets/images/carshowcase.png", "assets/images/carshowcase2.png", "assets/images/carshowcase3.png", "assets/images/carshowcase4.png", "assets/images/carshowcase5.png"], tech: ["Html", "Bootstrap"], liveLink: "#", codeLink: "#", date: "2024-04-01", slug: "car-showcase-website" },
-    { id: 6, title: "ChatBot Application", category: "web", description: "A chat application for seamless real-time communication.", fullDescription: "Real-time chat application with user authentication, message history, and online status indicators.", image: "assets/images/Chatapp.png", gallery: ["assets/images/Chatapp.png", "assets/images/Chatapp2.png", "assets/images/Chatapp3.png", "assets/images/Chatapp4.png"], tech: ["Html", "Css", "Php"], liveLink: "#", codeLink: "#", date: "2024-04-15", slug: "chatbot-application" },
-    { id: 7, title: "Animated Portfolio", category: "web", description: "A Dark theme animated portfolio and project showcase website.", fullDescription: "Interactive portfolio website with smooth animations, 3D effects, and creative UI elements.", image: "assets/images/animatedport.png", gallery: ["assets/images/animatedport.png", "assets/images/animatedport2.png", "assets/images/animatedport3.png", "assets/images/animatedport4.png", "assets/images/animatedport5.png"], tech: ["Html", "Css", "Js", "Gsap"], liveLink: "#", codeLink: "#", date: "2024-05-01", slug: "animated-portfolio" },
-    { id: 8, title: "Bank App UI Design", category: "design", description: "Complete design system with typography, colors, components and guidelines.", fullDescription: "Comprehensive design system including color palette, typography scale, component library, and design tokens.", image: "assets/images/bank1.png", gallery: ["assets/images/bank1.png", "assets/images/bank2.png", "assets/images/bank3.png", "assets/images/bank4.png"], tech: ["Figma", "UI Design"], liveLink: "#", codeLink: null, date: "2024-02-28", slug: "figma-ui-design-system" },
-    { id: 9, title: "Bus Tracking App UI/UX", category: "design", description: "User interface and experience design for a fitness tracking mobile application.", fullDescription: "End-to-end UI/UX design process including user research, wireframing, prototyping, and usability testing.", image: "assets/images/tracko1.png", gallery: ["assets/images/tracko1.png", "assets/images/tracko2.png", "assets/images/tracko3.png", "assets/images/tracko4.png", "assets/images/tracko5.png"], tech: ["Figma", "UI/UX", "Prototyping"], liveLink: "#", codeLink: null, date: "2024-03-15", slug: "mobile-app-ui-ux-design" },
-    { id: 10, title: "OTT Landing Page UI", category: "design", description: "Complete brand identity package including logo, typography, color palette.", fullDescription: "Complete brand identity development including logo design, color psychology, typography selection.", image: "assets/images/design2.png", gallery: ["assets/images/design1.png", "assets/images/design2.png", "assets/images/design3.png", "assets/images/design4.png"], tech: ["Adobe Illustrator", "Branding", "Logo Design"], liveLink: "#", codeLink: null, date: "2024-04-05", slug: "brand-identity-logo-design" },
-    { id: 11, title: "Plant App UI", category: "design", description: "Modern redesign concept for an e-commerce website focusing on user experience.", fullDescription: "Complete website redesign focusing on improving user experience, accessibility, and conversion rates.", image: "assets/images/plant1.png", gallery: ["assets/images/plant1.png", "assets/images/plant2.png", "assets/images/plant3.png", "assets/images/plant4.png", "assets/images/plant5.png"], tech: ["Figma", "Web Design", "Wireframing"], liveLink: "#", codeLink: null, date: "2024-04-20", slug: "website-redesign-concept" }
-];
+  {
+    id: 1,
+    title: "Krishi Gifts and Chocolates",
+    category: "web",
+    description: "KGC is an e-commerce website that sells Homemade chocolates and Gifts",
+    fullDescription: "A complete e-commerce platform for homemade chocolates and gifts with user authentication, product catalog, cart system, and checkout functionality.",
+    image: "assets/images/KGC/kgc1.png",
+    gallery: [
+      "assets/images/KGC/kgc1.png",
+      "assets/images/KGC/kgc2.png",
+      "assets/images/KGC/kgc3.png",
+      "assets/images/KGC/kgc4.png"
+    ],
+    tech: ["Html", "Css", "Js"],
+    liveLink: "https://shopkgc.in/KGC/pages/index.php",
+    codeLink: null,
+    date: "2024-01-15",
+    slug: "krishi-gifts-chocolates"
+  },
 
+  {
+    id: 2,
+    title: "Sundown Studio Clone",
+    category: "web",
+    description: "Sundown Studio is Awwards Website that i Cloned.",
+    fullDescription: "A pixel-perfect clone of the award-winning Sundown Studio website with smooth animations and responsive design.",
+    image: "assets/images/Sundown/sundown1.png",
+    gallery: [
+      "assets/images/Sundown/sundown1.png",
+      "assets/images/Sundown/sundown2.png",
+      "assets/images/Sundown/sundown3.png",
+      "assets/images/Sundown/sundown4.png"
+    ],
+    tech: ["Html", "Css", "Js", "Gsap"],
+    liveLink: "https://devdeepesh-sundow-studio-clone.netlify.app/",
+    codeLink: "#",
+    date: "2024-02-10",
+    slug: "sundown-studio-clone"
+  },
+
+  {
+    id: 3,
+    title: "Indha Website Clone",
+    category: "web",
+    description: "It is an e-commerce website where i cloned the Frontend art.",
+    fullDescription: "Frontend clone of Indha e-commerce website with product pages, cart functionality, and responsive design.",
+    image: "assets/images/Indha/indha1.png",
+    gallery: [
+      "assets/images/Indha/indha1.png",
+      "assets/images/Indha/indha2.png",
+      "assets/images/Indha/indha3.png",
+      "assets/images/Indha/indha4.png",
+      "assets/images/Indha/indha5.png"
+    ],
+    tech: ["React Js", "React Router"],
+    liveLink: null,
+    codeLink: "#",
+    date: "2024-03-05",
+    slug: "indha-website-clone"
+  },
+
+  {
+    id: 4,
+    title: "Printshoppy Clone",
+    category: "web",
+    description: "It is an e-commerce website where i cloned the Frontend art.",
+    fullDescription: "E-commerce website clone for print-on-demand services with product customization features.",
+    image: "assets/images/printyshop/printy1.png",
+    gallery: [
+      "assets/images/printyshop/printy1.png",
+      "assets/images/printyshop/printy2.png",
+      "assets/images/printyshop/printy3.png",
+      "assets/images/printyshop/printy4.png"
+    ],
+    tech: ["React Js", "React Router"],
+    liveLink: null,
+    codeLink: "#",
+    date: "2024-03-20",
+    slug: "printshoppy-clone"
+  },
+
+  {
+    id: 5,
+    title: "Car Showcase Website",
+    category: "web",
+    description: "This is an Car Showcase Website with Clean and professional UI.",
+    fullDescription: "A car showcase website with filtering options, detailed specifications, and image gallery.",
+    image: "assets/images/CarShowcase/car1.png",
+    gallery: [
+      "assets/images/CarShowcase/car1.png",
+      "assets/images/CarShowcase/car2.png",
+      "assets/images/CarShowcase/car3.png",
+      "assets/images/CarShowcase/car4.png"
+    ],
+    tech: ["Html", "Bootstrap"],
+    liveLink: "#",
+    codeLink: "#",
+    date: "2024-04-01",
+    slug: "car-showcase-website"
+  },
+
+  {
+    id: 6,
+    title: "ChatBot Application",
+    category: "web",
+    description: "A chat application for seamless real-time communication.",
+    fullDescription: "Real-time chat application with user authentication, message history, and online status indicators.",
+    image: "assets/images/ChatApp/chat1.png",
+    gallery: [
+      "assets/images/ChatApp/chat1.png",
+      "assets/images/ChatApp/chat2.png",
+      "assets/images/ChatApp/chat3.png",
+      "assets/images/ChatApp/chat4.png",
+      "assets/images/ChatApp/chat5.png"
+    ],
+    tech: ["Html", "Css", "Php"],
+    liveLink: "#",
+    codeLink: "#",
+    date: "2024-04-15",
+    slug: "chatbot-application"
+  },
+
+  {
+    id: 7,
+    title: "Animated Portfolio",
+    category: "web",
+    description: "A Dark theme animated portfolio and project showcase website.",
+    fullDescription: "Interactive portfolio website with smooth animations, 3D effects, and creative UI elements.",
+    image: "assets/images/project-showcase/case1.png",
+    gallery: [
+      "assets/images/project-showcase/case1.png",
+      "assets/images/project-showcase/case2.png",
+     
+    ],
+    tech: ["Html", "Css", "Js", "Gsap"],
+    liveLink: "#",
+    codeLink: "#",
+    date: "2024-05-01",
+    slug: "animated-portfolio"
+  },
+
+  {
+    id: 8,
+    title: "Bank App UI Design",
+    category: "design",
+    description: "Complete design system with typography, colors, components and guidelines.",
+    fullDescription: "Comprehensive design system including color palette, typography scale, component library, and design tokens.",
+    image: "assets/images/Figma-Bank/bank1.png",
+    gallery: [
+      "assets/images/Figma-Bank/bank1.png",
+      "assets/images/Figma-Bank/bank2.png",
+      "assets/images/Figma-Bank/bank3.png",
+      "assets/images/Figma-Bank/bank4.png"
+    ],
+    tech: ["Figma", "UI Design"],
+    liveLink: "#",
+    codeLink: null,
+    date: "2024-02-28",
+    slug: "figma-ui-design-system"
+  },
+
+  {
+    id: 9,
+    title: "Bus Tracking App UI/UX",
+    category: "design",
+    description: "User interface and experience design for a fitness tracking mobile application.",
+    fullDescription: "End-to-end UI/UX design process including user research, wireframing, prototyping, and usability testing.",
+    image: "assets/images/Figma-Bus/tracko1.png",
+    gallery: [
+      "assets/images/Figma-Bus/tracko1.png",
+      "assets/images/Figma-Bus/tracko2.png",
+      "assets/images/Figma-Bus/tracko3.png",
+      "assets/images/Figma-Bus/tracko4.png",
+      "assets/images/Figma-Bus/tracko5.png"
+    ],
+    tech: ["Figma", "UI/UX", "Prototyping"],
+    liveLink: "#",
+    codeLink: null,
+    date: "2024-03-15",
+    slug: "mobile-app-ui-ux-design"
+  },
+
+  {
+    id: 10,
+    title: "OTT Landing Page UI",
+    category: "design",
+    description: "Complete brand identity package including logo, typography, color palette.",
+    fullDescription: "Complete brand identity development including logo design, color psychology, typography selection.",
+    image: "assets/images/Figma-OTT/design1.png",
+    gallery: [
+      "assets/images/Figma-OTT/design1.png",
+      "assets/images/Figma-OTT/design2.png",
+      "assets/images/Figma-OTT/design3.png",
+      "assets/images/Figma-OTT/design4.png"
+    ],
+    tech: ["Adobe Illustrator", "Branding", "Logo Design"],
+    liveLink: "#",
+    codeLink: null,
+    date: "2024-04-05",
+    slug: "brand-identity-logo-design"
+  },
+
+  {
+    id: 11,
+    title: "Plant App UI",
+    category: "design",
+    description: "Modern redesign concept for an e-commerce website focusing on user experience.",
+    fullDescription: "Complete website redesign focusing on improving user experience, accessibility, and conversion rates.",
+    image: "assets/images/Figma-Plant/plant1.png",
+    gallery: [
+      "assets/images/Figma-Plant/plant1.png",
+      "assets/images/Figma-Plant/plant2.png",
+      "assets/images/Figma-Plant/plant3.png",
+    
+     
+    ],
+    tech: ["Figma", "Web Design", "Wireframing"],
+    liveLink: "#",
+    codeLink: null,
+    date: "2024-04-20",
+    slug: "website-redesign-concept"
+  }
+];
 localStorage.setItem('portfolioProjects', JSON.stringify(projectsData));
 
 // Loader
-window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
-    const main = document.querySelector('.main');
-    setTimeout(() => { loader.classList.add('hide'); main.style.display = 'block'; }, 1500);
-    setTimeout(() => { loader.style.display = 'none'; }, 2000);
-});
+// ========== COMPLETE ASSET LOADER FIXED ==========
+
+let totalAssets = 0;
+let loadedAssets = 0;
+let loaderTimeout;
+
+// Hide main content initially
 document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.main').style.display = 'none';
     document.getElementById('loader').style.display = 'flex';
 });
 
+// Track images
+function trackImages() {
+    const images = document.querySelectorAll('img');
+    let newImages = 0;
+    
+    images.forEach(img => {
+        if (!img.hasAttribute('data-tracked')) {
+            img.setAttribute('data-tracked', 'true');
+            newImages++;
+            totalAssets++;
+            
+            if (img.complete) {
+                loadedAssets++;
+            } else {
+                img.addEventListener('load', onAssetLoad);
+                img.addEventListener('error', onAssetLoad);
+            }
+        }
+    });
+    
+    if (newImages === 0 && totalAssets > 0) {
+        checkAllLoaded();
+    }
+}
+
+function onAssetLoad() {
+    loadedAssets++;
+    checkAllLoaded();
+}
+
+function checkAllLoaded() {
+    if (loadedAssets >= totalAssets && totalAssets > 0) {
+        clearTimeout(loaderTimeout);
+        hideLoader();
+    }
+}
+
+function hideLoaderNow() {
+    const loader = document.getElementById('loader');
+    const main = document.querySelector('.main');
+    
+    if (loader && main) {
+        loader.style.display = 'none';
+        main.style.display = 'block';
+    }
+}
+// Start tracking
+document.addEventListener('DOMContentLoaded', function() {
+    // Track existing images
+    trackImages();
+    
+    // Keep tracking for dynamically added images (projects ke baad)
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                trackImages();
+            }
+        });
+    });
+    
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Fallback timeout
+    loaderTimeout = setTimeout(() => {
+        if (loadedAssets < totalAssets) {
+            hideLoader();
+        }
+    }, 5000);
+});
+
+// Projects render hone ke baad dobara track karne ke liye
+// Apne existing renderProjects() function ke END mein yeh line add karo:
+// setTimeout(() => trackImages(), 100);
 // Dock Navigation
 document.addEventListener('DOMContentLoaded', function() {
     const dockButtons = document.querySelectorAll('.dbtn');
@@ -466,6 +783,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Typewriter Effect
+// Typewriter Effect - Simple version with underscore
 document.addEventListener('DOMContentLoaded', function() {
     const targetElement = document.querySelector('.hero .hero-left .left1 h3:last-child .theme-fonts');
     if (targetElement) {
@@ -474,9 +792,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function typeEffect() {
             const currentRole = roles[roleIndex];
-            targetElement.textContent = currentRole.substring(0, isDeleting ? charIndex - 1 : charIndex + 1);
-            charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+            // Add underscore at the end
+            const displayText = currentRole.substring(0, isDeleting ? charIndex - 1 : charIndex + 1);
+            targetElement.textContent = displayText + (isDeleting && displayText === '' ? '' : '.');
             targetElement.style.color = '#FF721B';
+            charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
             
             if (!isDeleting && charIndex === currentRole.length) {
                 isWaiting = true;
@@ -491,10 +811,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             if (!isWaiting) setTimeout(typeEffect, isDeleting ? 50 : 100);
         }
+        
         setTimeout(typeEffect, 1000);
     }
 });
-
 // Render Projects
 function renderProjects() {
     const grid = document.getElementById('projectsGrid');
@@ -618,6 +938,87 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.modal-overlay')?.addEventListener('click', closeProjectModal);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProjectModal(); });
 });
+
+
+
+
+// cursor follow + GSAP smooth delay + left/right stretch
+const cursor = document.querySelector(".cursor");
+
+let mouseX = 0;
+let mouseY = 0;
+let currentX = 0;
+let currentY = 0;
+let lastX = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+gsap.ticker.add(() => {
+  // smooth follow with lerp
+  currentX += (mouseX - currentX) * 0.12;
+  currentY += (mouseY - currentY) * 0.12;
+
+  let diffX = currentX - lastX;
+
+  let scaleX = 1 + Math.min(Math.abs(diffX) / 25, 0.5);
+  let scaleY = 1 - Math.min(Math.abs(diffX) / 60, 0.2);
+
+  gsap.set(cursor, {
+    x: currentX,
+    y: currentY,
+    xPercent: -50,
+    yPercent: -50,
+    scaleX: scaleX,
+    scaleY: scaleY
+  });
+
+  lastX = currentX;
+});
+
+// back to normal smoothly when mouse stops
+let timer;
+document.addEventListener("mousemove", () => {
+  clearTimeout(timer);
+
+  timer = setTimeout(() => {
+    gsap.to(cursor, {
+      scaleX: 1,
+      scaleY: 1,
+      duration: 0.3,
+      ease: "power3.out"
+    });
+  }, 80);
+});
+
+// const cursor = document.querySelector(".cursor");
+
+// jitne bhi elements pe cursor text chahiye
+const items = document.querySelectorAll("[data-cursor]");
+
+const child = document.createElement("span");
+child.style.display = "none";
+cursor.appendChild(child);
+
+items.forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    cursor.style.width = "40px";
+    cursor.style.height = "40px";
+cursor.style.backgroundColor = "#fa6001";
+    child.innerText = item.dataset.cursor; // text from html
+    child.style.display = "block";
+  });
+
+  item.addEventListener("mouseleave", () => {
+    cursor.style.width = "10px";
+    cursor.style.height = "10px";
+cursor.style.backgroundColor = "white";
+    child.style.display = "none";
+  });
+});
+
 </script>
 
 </body>
