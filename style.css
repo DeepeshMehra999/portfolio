@@ -56,7 +56,7 @@
   
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:2}}
 .main{
   /* display: none; */  
   z-index: 9;

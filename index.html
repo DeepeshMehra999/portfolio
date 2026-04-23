@@ -649,8 +649,6 @@ const projectsData = [
   }
 ];
 localStorage.setItem('portfolioProjects', JSON.stringify(projectsData));
-
-// Loader
 // ========== COMPLETE ASSET LOADER FIXED ==========
 
 let totalAssets = 0;
@@ -700,7 +698,8 @@ function checkAllLoaded() {
     }
 }
 
-function hideLoaderNow() {
+// FIXED: Function name match karo
+function hideLoader() {
     const loader = document.getElementById('loader');
     const main = document.querySelector('.main');
     
@@ -709,12 +708,13 @@ function hideLoaderNow() {
         main.style.display = 'block';
     }
 }
+
 // Start tracking
 document.addEventListener('DOMContentLoaded', function() {
     // Track existing images
     trackImages();
     
-    // Keep tracking for dynamically added images (projects ke baad)
+    // Keep tracking for dynamically added images
     const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (mutation.addedNodes.length) {
@@ -725,12 +725,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     observer.observe(document.body, { childList: true, subtree: true });
     
-    // Fallback timeout
-    loaderTimeout = setTimeout(() => {
-        if (loadedAssets < totalAssets) {
-            hideLoader();
-        }
-    }, 5000);
+    // Fallback timeout - 3 seconds me loader force hide
+    loaderTimeout = setTimeout(function() {
+        hideLoader();
+    }, 3000);
 });
 
 // Projects render hone ke baad dobara track karne ke liye
