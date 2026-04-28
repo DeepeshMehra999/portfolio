@@ -78,7 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
+    font-family: strike !important;
     font-weight: 600;
     font-size: 10px;
     color: #0e0e0e;
@@ -100,6 +100,7 @@
     /* FIX: keep text inside circle */
     white-space: nowrap;
     max-width: none;
+    font-family: sand !important;
     padding: 0 4px;
 }
 
@@ -183,13 +184,13 @@
 <section class="hero gradient-bg" id="home">
   <div class="hero-left">
     <div class="left1">
-      <h3>Hello!!</h3>
-      <h3>My Name is </h3>
+      <h3>Hello World 👋</h3>
+      <!-- <h3>you can Call me  </h3> -->
       <h3 class="theme-font cursor-enter" data-cursor="Intro">Deepesh Mehra</h3>
       <h3>and I'm a <span class="theme-fonts" data-cursor="Typing">Frontend Developer</span></h3>
     </div>
     <div class="left2"></div>
-    <p data-cursor="Hire">Build a Stunning website with me. I Provide a Simple and Modern UI Design for you.</p>
+    <p data-cursor="Hire">Modern websites, clean interfaces and smooth experiences — built by me.</p>
   </div>
   <div class="hero-right">
     <div class="right-box">
@@ -306,10 +307,10 @@
     </div>
     <div class="timeline">
       <div class="experience">
-        <div class="card" data-cursor="Current">
+        <div class="card" data-cursor="Intern">
           <div class="card-top">
             <div><h3>Frontend Developer</h3><span class="company">Syncedge</span></div>
-            <span class="duration current">June 8, 2025 — Present</span>
+            <span class="duration current">June 8, 2025 — December 8, 2025</span>
           </div>
           <p class="description">Rebranded the complete UI kit and worked as Frontend Lead on an LMS (Lead Management System).</p>
           <ul class="points">
@@ -627,7 +628,33 @@ document.querySelector('.modal-overlay')?.addEventListener('click', closeProject
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeProjectModal(); });
 
 // filter & counts
-function filterProjects(filter) { document.querySelectorAll('.project-card').forEach(card => { card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none'; }); }
+function filterProjects(filter) {
+    let visibleCount = 0;
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        const show =
+            filter === 'all' || card.dataset.category === filter;
+
+        card.style.display = show ? 'flex' : 'none';
+
+        if (show) visibleCount++;
+    });
+
+    const grid = document.getElementById('projectsGrid');
+
+    let noProject = document.getElementById('noProjectFound');
+
+    if (!noProject) {
+        noProject = document.createElement('div');
+        noProject.id = 'noProjectFound';
+        noProject.className =
+            'col-span-full text-center text-black-300 text-md font-bold py-8';
+        noProject.innerText = 'No Project Found';
+        grid.appendChild(noProject);
+    }
+
+    noProject.style.display = visibleCount === 0 ? 'block' : 'none';
+}
 document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
     const counts = { all:projectsData.length, web:projectsData.filter(p=>p.category==='web').length, mobile:projectsData.filter(p=>p.category==='mobile').length, design:projectsData.filter(p=>p.category==='design').length };
